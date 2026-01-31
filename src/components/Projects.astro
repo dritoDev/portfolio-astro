@@ -1,36 +1,58 @@
 ---
-import "../styles/global.css";
+import { projects } from "../data/projects";
+import ProjectCard from "./ProjectCard.astro";
 ---
- <!-- PROJECTS -->
-  <section id="projects" class="projects container">
-    <h2>Proyectos</h2>
+<section id="projects">
+  <h2>Proyectos</h2>
 
-    <div class="projects-grid">
+  <div class="projects-grid">
+    {projects.map((project) => (
+      <ProjectCard {...project} />
+    ))}
+  </div>
+</section>
 
-      <article class="project-card">
-        <img src="assets/img/project1.png" alt="Proyecto 1">
-        <h3>Landing Page Responsive</h3>
-        <p>
-          Landing page moderna y optimizada para móviles utilizando HTML, CSS
-          y JavaScript.
-        </p>
-        <div class="project-links">
-          <a href="#" target="_blank">Demo</a>
-          <a href="#" target="_blank">GitHub</a>
-        </div>
-      </article>
 
-      <article class="project-card">
-        <img src="assets/img/project2.png" alt="Proyecto 2">
-        <h3>Dashboard UI</h3>
-        <p>
-          Interfaz de dashboard con diseño limpio y componentes reutilizables.
-        </p>
-        <div class="project-links">
-          <a href="#" target="_blank">Demo</a>
-          <a href="#" target="_blank">GitHub</a>
-        </div>
-      </article>
 
-    </div>
-  </section>
+
+<style>
+  .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: #020617;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tech-list li {
+  font-size: 0.75rem;
+  background: #0f172a;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+.project-links a {
+  margin-right: 1rem;
+}
+
+</style>
