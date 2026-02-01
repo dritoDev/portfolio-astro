@@ -3,21 +3,28 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 ---
+
 <!doctype html>
 <html lang="en">
-<head>
+	<head>
+		<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Alejandro Rosa | Frontend Developer</title>
   <meta name="description" content="Portafolio de Alejandro Rosa, Frontend Developer especializado en Astro, HTML, CSS y JavaScript." />
   <meta name="author" content="Alejandro Rosa" />
   <link rel="canonical" href="https://portfolio.pedrorosa.dev" />
-</head>
+		<script src="/src/scripts/nav.js" defer></script>
+	</head>
 
 	<body>
 		<Header />
-		<main>
+
+		<main class="container">
 			<slot />
 		</main>
-		 <Footer/>
+
+		<Footer />
 	</body>
 </html>
 

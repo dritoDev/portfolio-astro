@@ -1,15 +1,64 @@
----
-import "../styles/global.css"
----
+
 
 <!-- CONTACT -->
-  <section id="contact" class="contact container">
-    <h2>Contacto</h2>
-    <p>¿Tienes un proyecto o propuesta? Escríbeme.</p>
+<section id="contact" class="contact container">
+  <h2>Contacto</h2>
+  <p>¿Tienes un proyecto o propuesta? Escríbeme.</p>
 
-    <div class="contact-links">
-      <a href="mailto:tuemail@gmail.com">📧 Email</a>
-      <a href="https://github.com/tuusuario" target="_blank">🐙 GitHub</a>
-      <a href="https://linkedin.com/in/tuusuario" target="_blank">💼 LinkedIn</a>
-    </div>
-  </section>
+ <div class="contact-links">
+  <a href="mailto:tuemail@gmail.com" data-platform="email">📧 Email</a>
+  <a href="https://github.com/tuusuario" target="_blank" data-platform="github">🐙 GitHub</a>
+  <a href="https://linkedin.com/in/tuusuario" target="_blank" data-platform="linkedin">💼 LinkedIn</a>
+</div>
+
+</section>
+
+<style>
+ .contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* EMAIL */
+.contact-links a[data-platform="email"]:hover {
+  color: #ea4335;
+}
+
+/* GITHUB */
+.contact-links a[data-platform="github"]:hover {
+  color: #ffffff;
+}
+
+/* LINKEDIN */
+.contact-links a[data-platform="linkedin"]:hover {
+  color: #0a66c2;
+}
+
+/* Movimiento sutil */
+.contact-links a:hover {
+  transform: translateY(-2px);
+}
+.contact-links a {
+  position: relative;
+}
+
+.contact-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.contact-links a:hover::after {
+  width: 100%;
+}
+
+</style>

@@ -2,7 +2,7 @@
 import { projects } from "../data/projects";
 import ProjectCard from "./ProjectCard.astro";
 ---
-<section id="projects">
+<section id="projects" class="container">
   <h2>Proyectos</h2>
 
   <div class="projects-grid">
@@ -11,48 +11,3 @@ import ProjectCard from "./ProjectCard.astro";
     ))}
   </div>
 </section>
-
-
-
-
-<style>
-  .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.project-card {
-  background: #020617;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-}
-
-.project-content {
-  padding: 1.5rem;
-}
-
-.tech-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1rem 0;
-}
-
-.tech-list li {
-  font-size: 0.75rem;
-  background: #0f172a;
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-}
-
-.project-links a {
-  margin-right: 1rem;
-}
-
-</style>

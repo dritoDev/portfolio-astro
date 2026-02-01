@@ -1,22 +1,168 @@
 ---
-const { title, description, tech, image, demo, repo } = Astro.props;
+const { title, description, tech, image, link_demo, link_repo, id } = Astro.props;
 ---
+
 <article class="project-card">
-  <img src={image} alt={`Captura del proyecto ${title}`} />
+  <img
+    src={image}
+    loading="lazy"
+    width="800"
+    height="450"
+    alt={`Captura del proyecto ${title}`}
+  />
 
   <div class="project-content">
+    <h4>No.{id}</h4>
     <h3>{title}</h3>
     <p>{description}</p>
 
     <ul class="tech-list">
-      {tech.map((item) => (
-        <li>{item}</li>
-      ))}
+      { tech.map((item) => (
+        <li 
+          class="tech-badge"
+          data-tech={item.toLowerCase()}
+        >
+          {item}
+        </li>
+        ))}
     </ul>
 
     <div class="project-links">
-      {demo && <a href={demo} target="_blank">Demo</a>}
-      {repo && <a href={repo} target="_blank">GitHub</a>}
+      {link_demo && (
+      <a  
+        id={id}
+        title={link_demo}
+        data-project={link_demo.toLowerCase()} 
+        href={link_demo} 
+        target="_blank">
+          Demo
+      </a>
+      )}
+      {link_repo && (
+        <a  
+          id={id}
+          title={link_repo}
+          data-project={link_repo.toLowerCase()} 
+          href={link_repo} 
+          target="_blank">
+            GitHub
+        </a>
+      )}
     </div>
   </div>
 </article>
+
+<style>
+  .project-card {
+    background: #020617;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  .project-card {
+    transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  }
+
+  .project-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: 1px solid #0f172a;
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: blue;
+  }
+ 
+  /* CSS base del badge (OBLIGATORIO) */
+  .tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tech-badge {
+  font-size: 0.75rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #e5e7eb;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+/* Colores dinámicos por tecnología */
+
+/* ASTRO */
+.tech-badge[data-tech="astro"] {
+  background: rgba(214, 12, 123, 0.264);
+  color: whitesmoke;
+}
+
+/* JAVASCRIPT */
+.tech-badge[data-tech="javascript"] {
+  background: rgba(247, 223, 30, 0.15);
+  color: yellow;
+}
+
+/* HTML */
+.tech-badge[data-tech="html"] {
+  background: rgba(219, 135, 135, 0.155);
+  color: orange;
+}
+
+/* CSS / SCSS */
+.tech-badge[data-tech="css"],
+.tech-badge[data-tech="scss"] {
+  background: rgba(38, 77, 228, 0.15);
+  color: #264de4;
+}
+
+/* GIT */
+.tech-badge[data-tech="git"] {
+  background: rgba(228, 188, 179, 0.15);
+  color: red;
+}
+/* NodeJs */
+.tech-badge[data-tech="nodejs"] {
+  background: rgba(47, 241, 50, 0.15);
+  color: yellowgreen;
+}
+/* express */
+.tech-badge[data-tech="express"] {
+  background: rgba(255, 254, 253, 0.11);
+  color: whitesmoke;
+}
+/* postman */
+.tech-badge[data-tech="postman"] {
+  background: lab(54.02% 63.94 45.59 / 0.171);
+  color: orangered;
+}
+
+/* Hover elegante */
+.tech-badge:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+
+.project-links a {
+  margin-right: 1rem;
+}
+ 
+</style>
