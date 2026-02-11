@@ -1,0 +1,134 @@
+---
+import Icon from "./Icon.astro";
+import "../styles/global.css";
+---
+
+<!-- skills-->
+<section id="skills" class="skills">
+  <h2 class="skill-title"><strong>Skills</strong></h2>
+
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <Icon name="js" size="32px" />
+      <p>JavaScript</p>
+    </div>
+
+    <div class="skill-card">
+      <Icon name="node" size="34px" />
+      <p>Node.js</p>
+    </div>
+
+    <div class="skill-card">
+      <Icon name="next" size="36px" />
+      <p>Next.js</p>
+    </div>
+
+    <div class="skill-card">
+      <Icon name="ts" size="34px" />
+      <p>TypeScript</p>
+    </div>
+    
+  </div>
+</section>
+
+
+<style>
+  .skills {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.skill-title {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* GRID BASE (mobile first) */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+  gap: 1.5rem;
+}
+
+/* TARJETA */
+.skill-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.skill-card p {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+  .skills li {
+    transition: color 0.3s ease;
+    list-style: none;
+  }
+  .skills {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.skill-title {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* GRID BASE (mobile first) */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+  gap: 1.5rem;
+}
+
+/* TARJETA */
+.skill-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.skill-card p {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 160px));
+    justify-content: center;
+    max-width: var(--max-width-900);
+    margin: 0 auto;
+  }
+}
+
+
+</style>

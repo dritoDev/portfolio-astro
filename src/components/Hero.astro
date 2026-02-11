@@ -1,39 +1,93 @@
-
+---
+import "../styles/global.css";
+import Icon from "./Icon.astro";
+---
 <!-- HERO -->
-  <section id="home" class="hero">
-    <h1>Hola, soy <span>Alejandro Rosa</span></h1>
-    <h2>Frontend Developer</h2>
+<section id="home" class="hero">
+  <Icon name="hero" size="360px" />
+  <div class="hero-content">
+    <h1>
+      Hello, I`am <span class="">Pedro Rosa</span><br /> Frontend <strong
+        class="outlined">Developer</strong
+      ><br />
+      Based in <strong>Rep. Dominican</strong>
+    </h1>
     <p>
-      Desarrollo interfaces web modernas, accesibles y responsivas usando
-      HTML, CSS y JavaScript.
+      Desarrollo interfaces web modernas, accesibles y responsivas usando HTML,
+      CSS y JavaScript.
     </p>
-  </section>
+    <div class="hero__social">
+      <a href="#" class="social-link" aria-label="Facebook">
+        <Icon name="facebook" size="36px"/>
+      </a>
+      <a href="#" class="social-link" aria-label="Reddit">
+        <Icon name="reddit" size="36px"/>
+      </a>
+      <a href="#" class="social-link" aria-label="Twitter">
+        <Icon name="twitter" size="36px"/>
+      </a>
+      <a href="#" class="social-link" aria-label="Discord">
+        <Icon name="discord" size="36px"/>
+      </a>
+    </div>
+  </div>
+</section>
 
 <style>
-.hero h1 span {
-  color: var(--primary);
-}
+  .hero {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem 0;
+    padding: var(--space-8) var(--space-4);
+  }
+  .icon-content {
+    width: 100%;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
 
-.hero-buttons {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.btn {
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.primary {
-  background: var(--primary);
-  color: #000;
-}
-
-.secondary {
-  border: 2px solid var(--primary);
-  color: var(--primary);
-}
-  </style>
+  }
+  section h1 span {
+    color: var(--color-primary-400);
+    font-weight: var(--font-bold-l);
+    text-shadow: var(--shadow-lg);
+  }
+  h1 {
+    font-size: clamp(var(--space-6), 5vw, var(--space-8));
+    font-weight: var(--font-regula);
+  }
+  strong {
+    font-weight: var(--font-bold-l);
+  }
+  p {
+    font-size: var(--text-base);
+    font-weight: var(--font-regular);
+    line-height: 1.5;
+  }
+  @media (min-width: 768px) {
+    .hero {
+      flex-direction: row-reverse;
+      height: auto;
+    }
+    .hero-content {
+      max-width: 50%;
+    }
+  }
+  .hero__social {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: var(--space-4);
+    width: auto; 
+  }
+  .social-link {
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3);
+  }
+</style>

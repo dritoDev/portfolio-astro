@@ -1,18 +1,30 @@
 ---
 import AR from "./icons/AR.svg?raw";
-// import linkedin from "./icons/linkedin.svg?raw";
-// import javascript from "./icons/javascript.svg?raw";
-// import html from "./icons/html5.svg?raw";
-// import git from "./icons/git.svg?raw";
-// import logo from "./icons/logo.svg?raw";
+import facebook from "./icons/facebook.svg?raw";
+import twitter from "./icons/twitter.svg?raw";
+import hero from "./icons/hero.svg?raw";
+import git from "./icons/git.svg?raw";
+import reddit from "./icons/reddit.svg?raw";
+import logo from "./icons/logo.svg?raw";
+import discord from "./icons/discord.svg?raw";
+import next from "./icons/next.svg?raw";
+import js from "./icons/js.svg?raw";
+import node from "./icons/node.svg?raw";
+import ts from "./icons/ts.svg?raw";
 
 const icons = {
   icono: AR,
-  // linkedin,
-  // javascript,
-  // html,
-  // git,
-  // logo,
+  facebook,
+  hero,
+  twitter,
+  git,
+  logo,
+  reddit,
+  discord,
+  next,
+  js,
+  node,
+  ts,
 };
 
 const { name, size = "24px", color = "currentColor" } = Astro.props;
@@ -20,21 +32,20 @@ const { name, size = "24px", color = "currentColor" } = Astro.props;
 const svg = icons[name];
 ---
 
-{svg && (
-  <span
-    class="icon"
-    style={`width:${size}; height:${size}; color:${color}; display:inline-flex;`}
-    set:html={svg}
-  />
-)}
+{
+  svg && (
+    <span
+      class="icon"
+      style={`width:${size}; height:${size}; color:${color}; display:inline-flex;`}
+      set:html={svg}
+    />
+  )
+}
 
 <style>
-.icon svg {
-  width: 100%;
-  height: 100%;
-}
-.icon {
-  filter: drop-shadow(0 4px 20px rgba(56,189,248,0.3));
-}
-
+  .icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 20px rgba(56, 189, 248, 0.3));
+  }
 </style>
